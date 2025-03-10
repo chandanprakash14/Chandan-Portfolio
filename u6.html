@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandan Prakash - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F7FA;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden;
+            transition: background 0.3s ease-in-out;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #007BFF;
+            padding: 20px;
+            z-index: 10;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 25px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #FF6F61;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #007BFF, #28A745);
+            color: #fff;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 1100px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        section:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Section Titles */
+        h2 {
+            border-bottom: 4px solid #007BFF;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            color: white;
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #007BFF, #FF6F61);
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+        .button:hover {
+            background: #0056b3;
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hover Effects on Certification Image */
+        .certification-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+
+        .certification-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content under the image */
+        .image-content {
+            margin-top: 20px;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #111;
+            color: #fff;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Footer */
+        footer {
+            background: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Toggle Button for Dark Mode */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #555;
+        }
+
+        @media screen and (max-width: 768px) {
+            section {
+                padding: 40px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#technical-skills">Technical Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <img src="C:\Users\ELCOT\Music\port\img\1741592780930.jpg" alt="Chandan Prakash Photo">
+        <h1>Chandan Prakash</h1>
+        <p>Python Developer | Software Tester | DevOps Enthusiast</p>
+    </header>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <img src="C:\Users\ELCOT\Music\port\img\chandang.jpg" alt="Education Image" class="certification-image">
+        <div class="image-content">
+            <p><strong>SKP Engineering College</strong> (2020 - 2024)</p>
+            <p>B.Tech. Information Technology | CGPA: 8.07/10.0</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <img src="C:\Users\ELCOT\Music\port\img\1741592780923.jpg" alt="Experience Image" class="certification-image">
+        <div class="image-content">
+            <p><strong>Ideasion Technology Solutions</strong> (Nov 2024 - Jan 2025)</p>
+            <p>Digital Transformation Intern</p>
+            <ul>
+                <li>Worked as a Python Developer and Software Tester.</li>
+                <li>Developed web applications using Flask and performed API testing with Postman.</li>
+                <li>Implemented automation testing using Selenium with Python.</li>
+                <li>Collaborated with teams to enhance system performance and user experience.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <img src="C:\Users\ELCOT\Music\port\img\Screenshot (803).png" alt="Project 1 Image"><br>
+            <strong>AI-Driven Document Extraction and Management System</strong> - Python, Flask, Google Generative AI, pytesseract, MongoDB
+            <br>
+            <a href="https://github.com/chandanprakash14/AI-Driven-Document-Extraction-and-Management-System.git"><i class="fab fa-github"></i> GitHub Link</a>
+        </div>
+        <div class="project-card">
+            <img src="C:\Users\ELCOT\Music\port\img\Screenshot (801).png" alt="Project 2 Image"><br>
+            <strong>Automated Functional Testing of Appointment Booking System</strong> - Python, Selenium
+            <br>
+            <a href="https://github.com/chandanprakash14/utomated-Functional-Testing-of-Appointment-Booking-System"><i class="fab fa-github"></i> GitHub Link</a>
+        </div>
+        <div class="project-card">
+            <img src="C:\Users\ELCOT\Music\port\img\Screenshot (802).png" alt="Project 3 Image"><br>
+            <strong>Mental Health AI Chatbot</strong> - Python, Flask
+            <br>
+            <a href="https://github.com/chandanprakash14/Mental-Health-AI-chatbot"><i class="fab fa-github"></i> GitHub Link</a>
+        </div>
+        <div class="project-card">
+            <strong>ATM System</strong> - Python, MySQL
+            <br>
+            <a href="https://github.com/chandanprakash14/auto-teller-machine"><i class="fab fa-github"></i> GitHub Link</a>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="technical-skills">
+        <h2>Technical Skills</h2>
+        <div class="image-content">
+            <p><strong>Programming Languages:</strong> Python, MySQL</p>
+             <p><strong>Cloud Technologies:</strong> AWS (EC2,S3,Lamda), Github, Jenkins</p>
+            <p><strong>Software Testing Tools:</strong> Selenium (WebDriver)</p>
+            <p><strong>Technologies & Frameworks:</strong> Web Development, Flask</p>
+            <p><strong>Developer Tools:</strong> VS Studio</p>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certification">
+            <img src="C:\Users\ELCOT\Music\port\img\guvi.jpg" alt="Certification 1" class="certification-image">
+            <div class="image-content">
+                <strong>Full Stack with Python Programming</strong>
+                <br>
+                <span>GUVI</span>
+            </div>
+        </div>
+        <div class="certification">
+            <img src="C:\Users\ELCOT\Music\port\img\py.jpeg" alt="Certification 2" class="certification-image">
+            <div class="image-content">
+                <strong>Python Certificate</strong>
+                <br>
+                <span>CodeChef</span>
+            </div>
+        </div>
+        <div class="certification">
+            <img src="C:\Users\ELCOT\Music\port\img\py.jpeg" alt="Certification 3" class="certification-image">
+            <div class="image-content">
+                <strong>SQL Certificate</strong>
+                <br>
+                <span>CodeChef</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:chandanchandan09093@gmail.com">chandanchandan09093@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+91 7539967397">+91 7539967397</a></p>
+            <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/chandan-prakash-666929215/">Profile</a></p>
+            <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/chandanprakash14">Profile</a></p>
+        </div>
+    </section>
+
+    <!-- Download Resume Button -->
+    <div style="text-align: center; margin-bottom: 50px;">
+        <a href="C:\Users\ELCOT\Music\port\Resume.pdf" download>
+    <button class="button">Download Resume</button>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Chandan Prakash | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+
+</body>
+</html>
